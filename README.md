@@ -76,4 +76,4 @@ See the full plan in:
 
 👨‍💻 Authors
 
-CS 4771 Team — Fall 2025
+Thomas Schmidt — CS 4771 — Fall 2025
