@@ -69,7 +69,8 @@ Example Libraries Used
 
 🗓️ Project Timeline
 
-See the full plan in timeline.md
+See the full plan in:
+- [ ] **Timeline & Milestones** → [`timeline.md`](timeline.md)
 
 ---
 
