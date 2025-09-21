@@ -21,3 +21,30 @@ Applications include:
 ---
 
 ## 📂 Repository Structure
+cs4771-music-genre-classification/
+├── proposal/
+│ └── project_proposal.md # Detailed project proposal
+├── timeline.md # Week-by-week milestones
+├── notebooks/ # Jupyter notebooks for experiments
+├── src/ # Source code (Python scripts)
+├── data/ # Dataset folder (excluded via .gitignore)
+├── requirements.txt # Project dependencies
+└── README.md # Project overview (this file)
+
+---
+
+## 📊 Deliverables
+- [x] **Project Proposal** → [`proposal/project_proposal.md`](proposal/project_proposal.md)  
+- [ ] **Timeline & Milestones** → [`timeline.md`](timeline.md)  
+- [ ] Baseline models notebook  
+- [ ] CNN spectrogram classifier  
+- [ ] Final evaluation & documentation  
+
+---
+
+## 🚀 Getting Started
+### Prerequisites
+- Python 3.9+  
+- Install dependencies:
+  ```bash
+  pip install -r requirements.txt
