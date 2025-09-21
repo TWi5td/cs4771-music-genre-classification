@@ -56,3 +56,23 @@ cs4771-music-genre-classification/
 - Install dependencies:
   ```bash
   pip install -r requirements.txt
+
+---
+
+Example Libraries Used
+- librosa – audio feature extraction
+- scikit-learn – baseline ML models
+- tensorflow / pytorch – deep learning models
+- matplotlib / seaborn – visualization
+
+---
+
+🗓️ Project Timeline
+
+See the full plan in timeline.md
+
+---
+
+👨‍💻 Authors
+
+CS 4771 Team — Fall 2025
