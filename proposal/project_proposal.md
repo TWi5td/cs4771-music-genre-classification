@@ -1,7 +1,7 @@
 # CS 4771: Undergraduate Project Proposal
 
 ## Problem Definition  
-We propose to build a machine learning model to classify the genre of a song based on its audio features. This application is useful for music recommendation systems, streaming platforms, and personal music organization. Automating genre classification helps improve user experience by enabling smarter playlists, recommendations, and content discovery.  
+I propose to build a machine learning model to classify the genre of a song based on its audio features. This application is useful for music recommendation systems, streaming platforms, and personal music organization. Automating genre classification helps improve user experience by enabling smarter playlists, recommendations, and content discovery.  
 
 ## Machine Learning Task  
 This is a **classification** task. The model will take in song audio data (or extracted features) and predict one of several music genres (e.g., rock, pop, classical, jazz, etc.).  
