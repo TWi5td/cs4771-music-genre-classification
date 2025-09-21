@@ -22,13 +22,21 @@ Applications include:
 
 ## 📂 Repository Structure
 cs4771-music-genre-classification/
+
 ├── proposal/
+
 │ └── project_proposal.md # Detailed project proposal
+
 ├── timeline.md # Week-by-week milestones
+
 ├── notebooks/ # Jupyter notebooks for experiments
+
 ├── src/ # Source code (Python scripts)
+
 ├── data/ # Dataset folder (excluded via .gitignore)
+
 ├── requirements.txt # Project dependencies
+
 └── README.md # Project overview (this file)
 
 ---
