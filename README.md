@@ -1,4 +1,4 @@
-# Music Genre Classification
+# 🎵 Music Genre Classification
 
 **CS 4771 Machine Learning Project** | University of Idaho | Thomas Schmidt
 
@@ -11,7 +11,7 @@ A complete machine learning system for classifying music genres from audio files
 
 ---
 
-## Table of Contents
+## 📋 Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)

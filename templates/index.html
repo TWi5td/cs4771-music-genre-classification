@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Genre Classifier | CS 4771</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">Genre Classifier</span>
+                        <span class="logo-subtitle">CS 4771 • ML Project</span>
+                    </div>
+                </div>
+                <div class="status-indicator" id="statusIndicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Ready</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-container" id="dropZone">
+                    <div class="upload-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 15V3m0 0l-4 4m4-4l4 4"/>
+                            <path d="M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/>
+                        </svg>
+                    </div>
+                    <h2 class="upload-title">Drop your audio file here</h2>
+                    <p class="upload-subtitle">or click to browse</p>
+                    <p class="upload-formats">Supports: WAV, MP3, FLAC, OGG, M4A</p>
+                    <input type="file" id="audioInput" accept=".wav,.mp3,.flac,.ogg,.m4a" hidden>
+                </div>
+
+                <!-- Selected File Display -->
+                <div class="selected-file" id="selectedFile" style="display: none;">
+                    <div class="file-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18V5l12-2v13"/>
+                            <circle cx="6" cy="18" r="3"/>
+                            <circle cx="18" cy="16" r="3"/>
+                        </svg>
+                    </div>
+                    <div class="file-info">
+                        <span class="file-name" id="fileName">filename.wav</span>
+                        <span class="file-size" id="fileSize">0 KB</span>
+                    </div>
+                    <button class="file-remove" id="removeFile" title="Remove file">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Model Selection -->
+                <div class="model-selection">
+                    <label class="model-label">Classification Model</label>
+                    <div class="model-options" id="modelOptions">
+                        <button class="model-btn active" data-model="cnn">
+                            <span class="model-icon">🧠</span>
+                            <span class="model-name">CNN</span>
+                            <span class="model-desc">Deep Learning</span>
+                        </button>
+                        <button class="model-btn" data-model="random_forest">
+                            <span class="model-icon">🌲</span>
+                            <span class="model-name">Random Forest</span>
+                            <span class="model-desc">Ensemble</span>
+                        </button>
+                        <button class="model-btn" data-model="logistic_regression">
+                            <span class="model-icon">📈</span>
+                            <span class="model-name">Logistic Reg.</span>
+                            <span class="model-desc">Linear</span>
+                        </button>
+                        <button class="model-btn" data-model="knn">
+                            <span class="model-icon">📍</span>
+                            <span class="model-name">k-NN</span>
+                            <span class="model-desc">Instance-based</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Predict Button -->
+                <button class="predict-btn" id="predictBtn" disabled>
+                    <span class="btn-text">Classify Genre</span>
+                    <span class="btn-loader" style="display: none;">
+                        <svg class="spinner" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" stroke-width="3" stroke-dasharray="31.4 31.4"/>
+                        </svg>
+                    </span>
+                </button>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="result-card">
+                    <div class="result-header">
+                        <h3>Classification Result</h3>
+                        <span class="result-model" id="resultModel">CNN Model</span>
+                    </div>
+                    
+                    <div class="result-main">
+                        <div class="genre-badge" id="genreBadge">
+                            <span class="genre-icon" id="genreIcon">🎸</span>
+                            <span class="genre-name" id="genreName">Rock</span>
+                        </div>
+                        <div class="confidence-display">
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" id="confidenceFill" style="width: 0%"></div>
+                            </div>
+                            <span class="confidence-value" id="confidenceValue">0%</span>
+                        </div>
+                    </div>
+
+                    <!-- Top 3 Predictions -->
+                    <div class="top-predictions" id="topPredictions">
+                        <h4>Top Predictions</h4>
+                        <div class="prediction-list" id="predictionList"></div>
+                    </div>
+
+                    <!-- All Probabilities -->
+                    <div class="all-probabilities">
+                        <h4>All Genre Probabilities</h4>
+                        <div class="probability-grid" id="probabilityGrid"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>CS 4771 Machine Learning Project • Thomas Schmidt • University of Idaho</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
