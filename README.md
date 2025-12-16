@@ -1,11 +1,11 @@
-# 🎵 Music Genre Classification (CS 4771 Project)
+# Music Genre Classification (CS 4771 Project)
 
 This project explores machine learning techniques for **classifying music genres** based on audio features.  
 The work is part of **CS 4771: Undergraduate Machine Learning Project**.
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 The goal of this project is to build models that can automatically classify songs into genres such as rock, pop, jazz, and classical.  
 Applications include:
 - Music recommendation systems
@@ -14,13 +14,13 @@ Applications include:
 
 ---
 
-## 🧠 Machine Learning Tasks
+## Machine Learning Tasks
 - **Baseline models:** Logistic Regression, k-NN, Random Forest on extracted audio features.  
 - **Deep learning model:** Convolutional Neural Network (CNN) trained on spectrogram images.  
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 cs4771-music-genre-classification/
 
 ├── proposal/
@@ -41,7 +41,7 @@ cs4771-music-genre-classification/
 
 ---
 
-## 📊 Deliverables
+## Deliverables
 - [x] **Project Proposal** → [`proposal/project_proposal.md`](proposal/project_proposal.md)  
 - [ ] **Timeline & Milestones** → [`timeline.md`](timeline.md)  
 - [ ] Baseline models notebook  
@@ -50,7 +50,7 @@ cs4771-music-genre-classification/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 ### Prerequisites
 - Python 3.9+  
 - Install dependencies:
@@ -67,7 +67,7 @@ Example Libraries Used
 
 ---
 
-🗓️ Project Timeline
+Project Timeline
 
 See the full plan in:
 - **Timeline & Milestones** → [`timeline.md`](timeline.md)
