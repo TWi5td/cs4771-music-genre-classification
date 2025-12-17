@@ -127,13 +127,13 @@ def verify_dataset(data_dir: Path) -> bool:
         return False
 
 
-def download_gtzan():
+def download_gtzan(data_dir: Path):
     """Main download function."""
     print("=" * 60)
     print("GTZAN Dataset Downloader")
     print("=" * 60)
     
-    RAW_DATA_DIR.mkdir(parents=True, exist_ok=True)
+    data_dir.mkdir(parents=True, exist_ok=True)
     
     # Check if dataset already exists
     if verify_dataset(RAW_DATA_DIR):
@@ -141,7 +141,7 @@ def download_gtzan():
         return True
     
     # Try downloading from available URLs
-    archive_path = RAW_DATA_DIR / "genres.tar.gz"
+    archive_path = data_dir / "genres.tar.gz"
     
     for url in GTZAN_URLS:
         if download_file(url, archive_path, "Downloading GTZAN dataset"):
@@ -163,9 +163,8 @@ def download_gtzan():
 
 
 def main():
-    """Main entry point."""
     import argparse
-    
+
     parser = argparse.ArgumentParser(description="Download GTZAN dataset")
     parser.add_argument(
         "--output", "-o",
@@ -178,18 +177,15 @@ def main():
         action="store_true",
         help="Show Kaggle download instructions"
     )
-    
+
     args = parser.parse_args()
-    
+
     if args.kaggle:
         print(KAGGLE_INSTRUCTIONS.format(data_dir=args.output))
         return
-    
-    global RAW_DATA_DIR
-    RAW_DATA_DIR = args.output
-    
-    success = download_gtzan()
-    
+
+    success = download_gtzan(args.output)
+
     if success:
         print("\n" + "=" * 60)
         print("Dataset ready! Next steps:")
