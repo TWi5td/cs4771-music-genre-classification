@@ -38,12 +38,12 @@ This project implements multiple approaches to music genre classification:
 
 ## Features
 
-✅ Multiple classification models (CNN, Random Forest, Logistic Regression, k-NN)  
-✅ Web-based interface with drag-and-drop file upload  
-✅ REST API for programmatic access  
-✅ Cross-platform support (Windows 11 & Ubuntu Server)  
-✅ Real-time classification with confidence scores  
-✅ Detailed probability breakdown for all genres  
+Multiple classification models (CNN, Random Forest, Logistic Regression, k-NN)  
+Web-based interface with drag-and-drop file upload  
+REST API for programmatic access  
+Cross-platform support (Windows 11 & Ubuntu Server)  
+Real-time classification with confidence scores  
+Detailed probability breakdown for all genres  
 
 ---
 
