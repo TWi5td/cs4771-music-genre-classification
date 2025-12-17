@@ -198,9 +198,10 @@ def train_baseline_models(
     print("Training Logistic Regression...")
     lr_model = LogisticRegression(
         max_iter=1000,
-        solver='liblinear',
+        solver='lbfgs',  # lbfgs supports multiclass natively
         C=1.0,
-        random_state=42
+        random_state=42,
+        multi_class='multinomial'
     )
     lr_model.fit(X_train_scaled, y_train)
     lr_preds = lr_model.predict(X_val_scaled)
