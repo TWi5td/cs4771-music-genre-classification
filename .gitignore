@@ -7,3 +7,6 @@ authorized_keys.pub
 
 #Git clones
 repo-mirror.git
+
+#Raw Data
+./data/raw
