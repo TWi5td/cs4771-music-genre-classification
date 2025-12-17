@@ -23,8 +23,8 @@
                         </svg>
                     </div>
                     <div class="logo-text">
-                        <span class="logo-title">Genre Classifier</span>
-                        <span class="logo-subtitle">CS 4771 • ML Project</span>
+                        <span class="logo-title">Music Genre Classifier</span>
+                        <span class="logo-subtitle">CS 4771 • Machine Learning Project</span>
                     </div>
                 </div>
                 <div class="status-indicator" id="statusIndicator">
@@ -76,22 +76,48 @@
                     <label class="model-label">Classification Model</label>
                     <div class="model-options" id="modelOptions">
                         <button class="model-btn active" data-model="cnn">
-                            <span class="model-icon">🧠</span>
+                            <span class="model-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="7" height="7"/>
+                                    <rect x="14" y="3" width="7" height="7"/>
+                                    <rect x="14" y="14" width="7" height="7"/>
+                                    <rect x="3" y="14" width="7" height="7"/>
+                                </svg>
+                            </span>
                             <span class="model-name">CNN</span>
                             <span class="model-desc">Deep Learning</span>
                         </button>
                         <button class="model-btn" data-model="random_forest">
-                            <span class="model-icon">🌲</span>
+                            <span class="model-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                    <path d="M2 17l10 5 10-5"/>
+                                    <path d="M2 12l10 5 10-5"/>
+                                </svg>
+                            </span>
                             <span class="model-name">Random Forest</span>
                             <span class="model-desc">Ensemble</span>
                         </button>
                         <button class="model-btn" data-model="logistic_regression">
-                            <span class="model-icon">📈</span>
-                            <span class="model-name">Logistic Reg.</span>
+                            <span class="model-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 3v18h18"/>
+                                    <path d="M7 16l4-7 4 2 5-8"/>
+                                </svg>
+                            </span>
+                            <span class="model-name">Logistic Regression</span>
                             <span class="model-desc">Linear</span>
                         </button>
                         <button class="model-btn" data-model="knn">
-                            <span class="model-icon">📍</span>
+                            <span class="model-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <circle cx="6" cy="6" r="2"/>
+                                    <circle cx="18" cy="6" r="2"/>
+                                    <circle cx="6" cy="18" r="2"/>
+                                    <circle cx="18" cy="18" r="2"/>
+                                </svg>
+                            </span>
                             <span class="model-name">k-NN</span>
                             <span class="model-desc">Instance-based</span>
                         </button>
@@ -119,7 +145,12 @@
                     
                     <div class="result-main">
                         <div class="genre-badge" id="genreBadge">
-                            <span class="genre-icon" id="genreIcon">🎸</span>
+                            <span class="genre-icon" id="genreIcon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                            </span>
                             <span class="genre-name" id="genreName">Rock</span>
                         </div>
                         <div class="confidence-display">
