@@ -1,0 +1,9 @@
+#Zip Files
+*.zip
+
+#keys
+authorized_keys
+authorized_keys.pub
+
+#Git clones
+repo-mirror.git
