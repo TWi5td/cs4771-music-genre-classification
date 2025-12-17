@@ -154,7 +154,10 @@ def download_gtzan():
             except Exception as e:
                 print(f"Error extracting: {e}")
     
-    # If automatic download fails, show Kaggle instructions
+    print("Attempting Kaggle download...")
+    if download_from_kaggle(RAW_DATA_DIR):
+        return verify_dataset(RAW_DATA_DIR)
+    
     print(KAGGLE_INSTRUCTIONS.format(data_dir=RAW_DATA_DIR))
     return False
 
@@ -198,6 +201,21 @@ def main():
         print("\nAutomatic download failed. Please download manually.")
         sys.exit(1)
 
+def download_from_kaggle(dest_dir: Path):
+    try:
+        from kaggle.api.kaggle_api_extended import KaggleApi
+        api = KaggleApi()
+        api.authenticate()
+
+        api.dataset_download_files(
+            "andradaolteanu/gtzan-dataset-music-genre-classification",
+            path=dest_dir,
+            unzip=True
+        )
+        return True
+    except Exception as e:
+        print(f"Kaggle download failed: {e}")
+        return False
 
 if __name__ == "__main__":
     main()
